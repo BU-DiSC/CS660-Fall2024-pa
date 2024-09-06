@@ -1,7 +1,7 @@
 # Assignments
 
 - [Introduction](docs/README.md)
-- [Assignment 0](docs/pa1.md)
+- [Assignment 0](docs/pa0.md)
 
 # Development Environment Setup
 
