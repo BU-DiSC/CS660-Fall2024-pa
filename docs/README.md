@@ -38,13 +38,13 @@ Please submit bug reports to the TF.
 
 ### Grading
 
-80% of your grade will be based on whether your code passes the tests when we run it. These tests will be a superset
-of the tests we have provided. Before handing in your code, you should make sure your code produces no errors.
+Your grade will be based on multiple components:
 
-For testing, we will use `ctest` with our version of the tests. This means you cannot change the format of binary files.
-You should also not change our API. You should test that your code compiles the unmodified tests. Try to add code only
-where we have indicated.
+- Code
+- Answer to technical questions
+- Demo (<u>\*only for certain assignments</u>)
+- Documentation
 
-An additional 20% of your grade will be based on the quality of your writeup and our subjective evaluation of your code.
+Please refer to the rubric attached with every assignment for the exact weightage for each component.
 
 We hope you enjoy hacking on this assignment!

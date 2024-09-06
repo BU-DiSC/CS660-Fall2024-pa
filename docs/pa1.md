@@ -121,10 +121,23 @@ Write any dirty pages associated with the file with the given `name` back to dis
 
 ### Questions
 
-Evicting a dirty page is more expensive than evicting a clean page. Propose a strategy to reduce the number of dirty
-pages that are evicted.
+1. Evicting a dirty page is more expensive than evicting a clean page. Propose a strategy to reduce the number of dirty pages that are evicted.
 
-The `Database::remove` flushes any dirty pages associated with the file before it is removed. What are the
-implications of leaving the pages in the buffer pool when a file is removed? Can you identify a possible bug?
+2. The `Database::remove` flushes any dirty pages associated with the file before it is removed. What are the implications of leaving the pages in the buffer pool when a file is removed? Can you identify a possible bug?
 
-When would you need to discard a page from the buffer pool without writing it back to disk?
+3. When would you need to discard a page from the buffer pool without writing it back to disk?
+
+### Grading
+
+- <u>**60% of your grade**</u> will be based on whether your code passes the tests when we run it. These tests will be a superset
+  of the tests we have provided. Before handing in your code, you should make sure your code produces no errors.
+
+- For testing, we will use `ctest` with our version of the tests. This means you cannot change the format of binary files.
+  You should also not change our API. You should test that your code compiles the unmodified tests. Try to add code only
+  where we have indicated.
+
+- <u>**30% of your grade**</u> will be based on your answer to the technical questions posted above. **You must follow instructions posted above to submit your answers.**
+
+- <u>**10% of your grade</u>** will be based on the quality of your writeup and our subjective evaluation of your code.
+
+We hope you enjoy hacking on this assignment!
