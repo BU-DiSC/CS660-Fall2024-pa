@@ -61,7 +61,7 @@ file.writePage(page, pageId.page);
 Add any private members needed and implement the methods as indicated by the `// TODO pa1.x` comments in the following
 files:
 
-### void Database::add(const std::string &name, std::unique_ptr<DbFile> file)
+### void Database::add(std::unique_ptr<DbFile> file)
 
 Associate the given `file` with the given unique `name`.
 

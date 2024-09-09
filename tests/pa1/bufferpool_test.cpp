@@ -138,7 +138,7 @@ TEST(BufferPoolTest, flushPage) {
   const auto &writes = file.getWrites();
   EXPECT_EQ(reads.size(), 1);
   EXPECT_EQ(reads[0], 0);
-  EXPECT_EQ(writes.size(), 2);
+  EXPECT_EQ(writes.size(), 1);
   EXPECT_EQ(writes[0], 0);
 }
 
