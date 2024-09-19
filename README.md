@@ -99,12 +99,14 @@ Use the following commands:
 mkdir build 
 cd build 
 cmake ..
+make
 ```
 The following assumes you are inside the project folder. We are essentially creating a build/ folder and then building the project using cmake. 
 From the next time you want to build the project, you don't need to create the build folder:
 ```sh 
 cd build
 cmake ..
+make
 ```
 
 #### Compile the code
