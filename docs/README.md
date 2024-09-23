@@ -21,7 +21,6 @@ should:
 - Describe how long you spent on the assignment, and whether there was anything you found particularly difficult or
   confusing.
 - If you collaborate with someone else, you have to describe how you split the workload.
-- Label the file as **writeup.md** or **writeup.txt** (we require the writeup to either be a markdown or txt file <u>**only**</u>).
 
 ### Collaboration
 

@@ -63,7 +63,7 @@ files:
 
 ### void Database::add(std::unique_ptr<DbFile> file)
 
-Associate the given `file` with the given unique `name`.
+Adds the `file` to the catalog. Associate the given `file` with its name.
 
 ### std::unique_ptr<DbFile> Database::remove(const std::string &name)
 
@@ -126,8 +126,6 @@ Write any dirty pages associated with the file with the given `name` back to dis
 2. The `Database::remove` flushes any dirty pages associated with the file before it is removed. What are the implications of leaving the pages in the buffer pool when a file is removed? Can you identify a possible bug?
 
 3. When would you need to discard a page from the buffer pool without writing it back to disk?
-
-You will be submitting your answers to these questions <u>**directly on Gradescope**</u>. The link for submission will be released early next week.
 
 ### Grading
 

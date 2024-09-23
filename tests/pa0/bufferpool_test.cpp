@@ -8,7 +8,8 @@ TEST(BufferPoolTest, getPage) {
   db::BufferPool &bufferPool = db.getBufferPool();
 
   std::string name{"file"};
-  db.add(std::make_unique<db::DbFile>(name));
+  db::TupleDesc td;
+  db.add(std::make_unique<db::DbFile>(name, td));
   std::array<db::Page *, db::DEFAULT_NUM_PAGES> pages{};
   for (size_t i = 0; i < db::DEFAULT_NUM_PAGES; i++) {
     pages[i] = &bufferPool.getPage({name, i});
@@ -30,10 +31,11 @@ TEST(BufferPoolTest, getPage) {
 TEST(BufferPoolTest, getPageMultipleFiles) {
   db::Database &db = db::getDatabase();
   db::BufferPool &bufferPool = db.getBufferPool();
+  db::TupleDesc td;
 
   std::array<db::DbFile *, db::DEFAULT_NUM_PAGES> files{};
   for (size_t i = 0; i < db::DEFAULT_NUM_PAGES; i++) {
-    auto file = std::make_unique<db::DbFile>(std::to_string(i));
+    auto file = std::make_unique<db::DbFile>(std::to_string(i), td);
     files[i] = file.get();
     db.add(std::move(file));
   }
@@ -61,7 +63,8 @@ TEST(BufferPoolTest, eviction) {
   db::BufferPool &bufferPool = db.getBufferPool();
 
   std::string name{"file"};
-  db.add(std::make_unique<db::DbFile>(name));
+  db::TupleDesc td;
+  db.add(std::make_unique<db::DbFile>(name, td));
   std::array<db::Page *, db::DEFAULT_NUM_PAGES> pages{};
   for (size_t i = 0; i < db::DEFAULT_NUM_PAGES; i++) {
     pages[i] = &bufferPool.getPage({name, i});
@@ -90,7 +93,8 @@ TEST(BufferPoolTest, markDirty) {
   db::BufferPool &bufferPool = db.getBufferPool();
 
   std::string name{"file"};
-  db.add(std::make_unique<db::DbFile>(name));
+  db::TupleDesc td;
+  db.add(std::make_unique<db::DbFile>(name, td));
   std::array<db::Page *, db::DEFAULT_NUM_PAGES> pages{};
   for (size_t i = 0; i < db::DEFAULT_NUM_PAGES; i++) {
     pages[i] = &bufferPool.getPage({name, i});
@@ -122,7 +126,8 @@ TEST(BufferPoolTest, flushPage) {
   db::BufferPool &bufferPool = db.getBufferPool();
 
   std::string name{"file"};
-  db.add(std::make_unique<db::DbFile>(name));
+  db::TupleDesc td;
+  db.add(std::make_unique<db::DbFile>(name, td));
   db::PageId pid{name, 0};
   bufferPool.getPage(pid);
   bufferPool.markDirty(pid);
@@ -147,7 +152,8 @@ TEST(BufferPoolTest, discardPage) {
   db::BufferPool &bufferPool = db.getBufferPool();
 
   std::string name{"file"};
-  db.add(std::make_unique<db::DbFile>(name));
+  db::TupleDesc td;
+  db.add(std::make_unique<db::DbFile>(name, td));
   db::PageId pid{name, 0};
   bufferPool.getPage(pid);
   bufferPool.markDirty(pid);
@@ -171,7 +177,8 @@ TEST(BefferPoolTest, flushFile) {
   db::BufferPool &bufferPool = db.getBufferPool();
 
   std::string name{"file"};
-  db.add(std::make_unique<db::DbFile>(name));
+  db::TupleDesc td;
+  db.add(std::make_unique<db::DbFile>(name, td));
   for (size_t i = 0; i < size; i++) {
     db::PageId pid{name, i};
     bufferPool.getPage(pid);
@@ -198,7 +205,8 @@ TEST(BufferPoolTest, LRU) {
   db::BufferPool &bufferPool = db.getBufferPool();
 
   std::string name{"file"};
-  db.add(std::make_unique<db::DbFile>(name));
+  db::TupleDesc td;
+  db.add(std::make_unique<db::DbFile>(name, td));
   std::array<db::Page *, db::DEFAULT_NUM_PAGES> pages{};
   // fill the buffer pool with pages [0, DEFAULT_NUM_PAGES)
   for (size_t i = 0; i < db::DEFAULT_NUM_PAGES; i++) {

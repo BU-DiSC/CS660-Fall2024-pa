@@ -16,7 +16,13 @@ constexpr size_t DEFAULT_NUM_PAGES = 50;
  * @note A BufferPool owns the Page objects that are stored in it.
  */
 class BufferPool {
-  // TODO pa1: add private members
+  std::array<Page, DEFAULT_NUM_PAGES> pages;
+  std::array<PageId, DEFAULT_NUM_PAGES> pos_to_pid;
+  std::unordered_map<const PageId, size_t> pid_to_pos;
+  std::unordered_set<size_t> dirty;
+  std::vector<size_t> available;
+  std::list<size_t> lru_list;
+  std::unordered_map<size_t, std::list<size_t>::iterator> pos_to_lru;
 
 public:
   /**

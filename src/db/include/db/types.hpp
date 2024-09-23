@@ -6,6 +6,13 @@
 #include <variant>
 
 namespace db {
+constexpr size_t INT_SIZE = sizeof(int);
+constexpr size_t DOUBLE_SIZE = sizeof(double);
+constexpr size_t CHAR_SIZE = 64;
+
+enum class type_t { INT, CHAR, DOUBLE };
+
+using field_t = std::variant<int, double, std::string>;
 
 struct PageId {
   std::string file;
@@ -17,7 +24,7 @@ public:
 
 constexpr size_t DEFAULT_PAGE_SIZE = 4096;
 
-using Page = std::array<char, DEFAULT_PAGE_SIZE>;
+using Page = std::array<uint8_t, DEFAULT_PAGE_SIZE>;
 } // namespace db
 
 template <> struct std::hash<const db::PageId> {
