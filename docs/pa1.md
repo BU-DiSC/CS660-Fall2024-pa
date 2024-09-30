@@ -176,6 +176,8 @@ The `empty` method checks if the page is empty (i.e. no populated tuples).
    What is the cost of the solution you propose?
 
 2. In this assignment we have fixed size fields. How can we support variable size fields (e.g. `VARCHAR`)?
+   
+You will be submitting your answers to these questions <u>**directly on Gradescope**</u>. The link for submission will be released early next week.
 
 ### Grading
 

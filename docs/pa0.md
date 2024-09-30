@@ -127,6 +127,8 @@ Write any dirty pages associated with the file with the given `name` back to dis
 
 3. When would you need to discard a page from the buffer pool without writing it back to disk?
 
+You will be submitting your answers to these questions <u>**directly on Gradescope**</u>. The link for submission will be released early next week.
+
 ### Grading
 
 - <u>**60% of your grade**</u> will be based on whether your code passes the tests when we run it. These tests will be a superset
