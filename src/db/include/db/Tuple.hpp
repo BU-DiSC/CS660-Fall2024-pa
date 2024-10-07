@@ -18,7 +18,9 @@ public:
 };
 
 class TupleDesc {
-  // TODO pa2: add private members
+  std::vector<type_t> types;
+  std::vector<size_t> offsets;
+  std::unordered_map<std::string, size_t> name_to_index;
 
 public:
   TupleDesc() = default;

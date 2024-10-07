@@ -9,27 +9,34 @@ using namespace db;
 const TupleDesc &DbFile::getTupleDesc() const { return td; }
 
 DbFile::DbFile(const std::string &name, const TupleDesc &td) : name(name), td(td) {
-  // TODO pa2: open file and initialize numPages
-  // Hint: use open, fstat
+  fd = open(name.c_str(), O_RDWR | O_CREAT, S_IRUSR | S_IWUSR | S_IRGRP | S_IROTH);
+  if (fd == -1) {
+    throw std::runtime_error("open");
+  }
+  struct stat st{};
+  if (fstat(fd, &st) == -1) {
+    throw std::runtime_error("fstat");
+  }
+  numPages = st.st_size / DEFAULT_PAGE_SIZE;
+  if (numPages == 0) {
+    numPages = 1;
+  }
 }
 
 DbFile::~DbFile() {
-  // TODO pa2: close file
-  // Hind: use close
+  close(fd);
 }
 
 const std::string &DbFile::getName() const { return name; }
 
 void DbFile::readPage(Page &page, const size_t id) const {
   reads.push_back(id);
-  // TODO pa2: read page
-  // Hint: use pread
+  pread(fd, page.data(), DEFAULT_PAGE_SIZE, id * DEFAULT_PAGE_SIZE);
 }
 
 void DbFile::writePage(const Page &page, const size_t id) const {
   writes.push_back(id);
-  // TODO pa2: write page
-  // Hint: use pwrite
+  pwrite(fd, page.data(), DEFAULT_PAGE_SIZE, id * DEFAULT_PAGE_SIZE);
 }
 
 const std::vector<size_t> &DbFile::getReads() const { return reads; }

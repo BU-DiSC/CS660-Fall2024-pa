@@ -1,6 +1,6 @@
 # Programming Assignment 1
 
-In this assignment, we will implement implement a file that can store and retrieve tuples from disk. Each page of the
+In this assignment, we will implement a file that can store and retrieve tuples from disk. Each page of the
 file will store some metadata (header) and the data (tuples). Each `Tuple` is a collection of fixed length fields (i.e.
 `INT`, `DOUBLE`, `CHAR(64)`).
 
@@ -176,8 +176,8 @@ The `empty` method checks if the page is empty (i.e. no populated tuples).
    What is the cost of the solution you propose?
 
 2. In this assignment we have fixed size fields. How can we support variable size fields (e.g. `VARCHAR`)?
-   
-You will be submitting your answers to these questions <u>**directly on Gradescope**</u>. The link for submission will be released early next week.
+
+You will be submitting your answers to these questions <u>**directly on Gradescope**</u>.
 
 ### Grading
 

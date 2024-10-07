@@ -8,4 +8,5 @@ FetchContent_Declare(
 FetchContent_MakeAvailable(googletest)
 
 #add_subdirectory(pa0)
-add_subdirectory(pa1)
+#add_subdirectory(pa1)
+add_subdirectory(pa2)
