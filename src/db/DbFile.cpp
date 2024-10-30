@@ -31,6 +31,7 @@ const std::string &DbFile::getName() const { return name; }
 
 void DbFile::readPage(Page &page, const size_t id) const {
   reads.push_back(id);
+  std::fill(page.begin(), page.end(), 0);
   pread(fd, page.data(), DEFAULT_PAGE_SIZE, id * DEFAULT_PAGE_SIZE);
 }
 

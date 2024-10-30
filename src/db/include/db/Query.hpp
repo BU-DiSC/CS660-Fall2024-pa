@@ -94,7 +94,7 @@ void filter(const DbFile &in, DbFile &out, const std::vector<FilterPredicate> &p
  * @param right The right table.
  * @param out The output table.
  * @param pred The join predicates.
- * @note Do not keep the join field of the right table in the output.
+ * @note When performing an equality join do not keep the join field of the right table in the output.
  * @note Keep in mind that the bufferpool has a limited size.
  */
 void join(const DbFile &left, const DbFile &right, DbFile &out, const JoinPredicate &pred);

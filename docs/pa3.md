@@ -25,7 +25,7 @@ file all the tuples from the input file that satisfy all the predicates.
 
 The `aggregate` operations implement basic SQL aggregates with a GROUP BY clause. You should implement the five SQL
 aggregates (`COUNT`, `SUM`, `AVG`, `MIN`, `MAX`) and support grouping. You only need to support aggregates over a single
-field, and grouping by a single field.
+field, and grouping by a single field. If there is no grouping, the aggregate should return a single tuple with one field.
 
 ## JoinPredicate
 
@@ -33,7 +33,10 @@ A `JoinPredicate` describes a comparison between two fields of two tuples.
 
 ## Join
 
-The `join` operation is used for joining tuples from two input files.
+The `join` operation is used for joining tuples from two input files. The join operation will take in two input `DbFile`
+objects and an output `DbFile` object. The join operation will insert into the output file all the tuples that are the
+result of joining the tuples from the two input files that satisfy the join predicate. If the join predicate operator is
+`EQ`, the operation will perform ignore the joining field of the second file (to avoid repetition of equal values). 
 
 ## Questions
 
