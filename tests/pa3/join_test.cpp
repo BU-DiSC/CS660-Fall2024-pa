@@ -82,11 +82,11 @@ TEST(JoinTest, NotEqual) {
   auto &right = db::getDatabase().get(right_name);
   auto &out = db::getDatabase().get(out_name);
 
-  std::vector<int> values;
+  std::unordered_set<int> values;
   std::mt19937 gen(1234);
   std::uniform_int_distribution<> dis(-100000, 100000);
   while (values.size() < 1500) {
-    values.push_back(dis(gen));
+    values.insert(dis(gen));
   }
 
   for (const auto &i : values) {
